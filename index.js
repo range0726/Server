@@ -57,7 +57,11 @@ async function run() {
         // await updateWorkSchedule(db, 'workSchedule', new ObjectId("647b05464f2cf47c0bd85cac"), workSchedule);
         await selectWorkSchedule(db, 'workSchedule', {});
 
-    } finally {
+    }
+    catch(e){
+        console.log(e);
+    } 
+    finally {
         await client.close();
     }
 }
@@ -66,8 +70,8 @@ async function run() {
 async function selectWorkSchedule(db, collection, data) {
     // Find all work schedules
     const result = await db.collection(collection).find(data).toArray();
-    // console.log(result);
-    // console.log("Found work schedule");
+    console.log(result);
+    console.log("Found work schedule");
 }
 
 //Add
@@ -80,8 +84,8 @@ async function addWorkSchedule(db, collection, data) {
     //     end: 16
     // };
     let result = await db.collection(collection).insertOne(data);
-    // console.log("Inserted work schedule");
-    // console.log(result);
+    console.log("Inserted work schedule");
+    console.log(result);
 }
 
 //Update
