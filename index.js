@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 app.post('/submit', (req, res) => {
     // console.log(req.body);
     run().catch(console.dir);
-    res.send(`Sent`);
+    res.send(`Sent 2.0`);
 });
 
 app.listen(3000, () => {
