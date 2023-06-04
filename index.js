@@ -7,7 +7,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const uri = process.env.DATABASE_URL;
+const uri = process.env.MONGODB_URI;
 
 
 app.get('/', (req, res) => {
