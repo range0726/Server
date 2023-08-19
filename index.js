@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 
 app.post('/submit', (req, res) => {
     // console.log(req.body);
-    run().catch(console.dir);
+    run(req, res).catch(console.dir);
     res.send(run().catch(console.dir));
 });
 
@@ -42,7 +42,7 @@ const client = new MongoClient(uri, {
     }
 });
 
-async function run() {
+async function run(req, res) {
     try {
         const dbName = "FamilyDB";
 
@@ -59,8 +59,7 @@ async function run() {
 
     }
     catch(e){
-        console.log(e);
-        return e;
+        res.send(e);
     } 
     finally {
         await client.close();
