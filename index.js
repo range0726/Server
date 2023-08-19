@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 app.post('/submit', (req, res) => {
     // console.log(req.body);
     run().catch(console.dir);
-    res.send(`Sent 2.0`);
+    res.send(run().catch(console.dir));
 });
 
 app.listen(3000, () => {
@@ -60,6 +60,7 @@ async function run() {
     }
     catch(e){
         console.log(e);
+        return e;
     } 
     finally {
         await client.close();
